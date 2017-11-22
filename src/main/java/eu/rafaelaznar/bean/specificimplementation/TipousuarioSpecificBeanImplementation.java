@@ -30,10 +30,20 @@ package eu.rafaelaznar.bean.specificimplementation;
 
 import com.google.gson.annotations.Expose;
 import eu.rafaelaznar.bean.genericimplementation.TableGenericBeanImplementation;
+import eu.rafaelaznar.bean.meta.publicinterface.MetaPropertyBeanInterface;
+import eu.rafaelaznar.helper.EnumHelper;
 
 public class TipousuarioSpecificBeanImplementation extends TableGenericBeanImplementation {
 
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "descripcion",
+            ShortName = "Descr.",
+            LongName = "Descripción",
+            Description = "Descripción del tipo de ususario",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true      
+    )
     private String descripcion;
 
     public TipousuarioSpecificBeanImplementation() {

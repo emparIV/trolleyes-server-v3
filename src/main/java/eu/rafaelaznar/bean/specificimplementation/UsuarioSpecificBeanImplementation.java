@@ -48,7 +48,6 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
 
     @Expose
     @MetaPropertyBeanInterface(
-            IsId = false,
             Name = "dni",
             ShortName = "DNI",
             LongName = "DNI",
@@ -60,7 +59,6 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
 
     @Expose
     @MetaPropertyBeanInterface(
-            IsId = false,
             Name = "nombre",
             ShortName = "Nombre",
             LongName = "Nombre",
@@ -72,7 +70,6 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
     
     @Expose    
     @MetaPropertyBeanInterface(
-            IsId = false,
             Name = "primer_apellido",
             ShortName = "1er. Ap.",
             LongName = "Primer Apellido",
@@ -82,20 +79,84 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
     )        
     private String primer_apellido;
     
-    @Expose
+    @Expose    
+    @MetaPropertyBeanInterface(
+            Name = "segundo_apellido",
+            ShortName = "2nd. Ap.",
+            LongName = "Segundo Apellido",
+            Description = "Segundo Apellido del usuario",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true            
+    )   
     private String segundo_apellido;
-    @Expose
+    
+    
+    @Expose    
+    @MetaPropertyBeanInterface(
+            Name = "login",
+            ShortName = "Login",
+            LongName = "Login",
+            Description = "Nombre de usuario del usuario",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true            
+    )   
     private String login;
+        
     @Expose(serialize = false)
+    @MetaPropertyBeanInterface(
+            Name = "password",
+            ShortName = "Pass",
+            LongName = "Pasword",
+            Description = "Contraseña del usuario",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true            
+    )   
     private String password;
+    
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "email",
+            ShortName = "E-mail",
+            LongName = "E-mail",
+            Description = "Correo electronico del usuario",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true            
+    )   
     private String email;
+    
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "fecha_nacimiento",
+            ShortName = "Fecha nac.",
+            LongName = "Fecha de Nacimiento",
+            Description = "Fecha de nacimiento del usuario",
+            Type = EnumHelper.FieldType.Date,
+            IsRequired = true            
+    )   
     private Date fecha_nacimiento;
 
     @Expose(serialize = false)
+    @MetaPropertyBeanInterface(
+            IsIdForeignKey = true,
+            Name = "id_tipousuario",
+            ShortName = "ID tipo usu.",
+            LongName = "ID Tipo usuario",
+            Description = "El id del tipo de usuario al que pertenece el usuario",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true            
+    )   
     private Integer id_tipousuario = 0;
+    
     @Expose(deserialize = false)
+       @MetaPropertyBeanInterface(
+            IsObjForeignKey = true,
+            Name = "obj_tipousuario",
+            ShortName = "obj. tipo usu.",
+            LongName = "Objeto Tipo usuario",
+            Description = "El objeto del tipo de usuario al que pertenece el usuario",
+            Type = EnumHelper.FieldType.Object,
+            IsRequired = true            
+    )   
     private TipousuarioSpecificBeanImplementation obj_tipousuario = null;
 
     public UsuarioSpecificBeanImplementation() {

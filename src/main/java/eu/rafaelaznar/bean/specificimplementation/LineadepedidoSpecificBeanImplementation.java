@@ -30,6 +30,8 @@ package eu.rafaelaznar.bean.specificimplementation;
 
 import com.google.gson.annotations.Expose;
 import eu.rafaelaznar.bean.genericimplementation.TableGenericBeanImplementation;
+import eu.rafaelaznar.bean.meta.publicinterface.MetaPropertyBeanInterface;
+import eu.rafaelaznar.helper.EnumHelper;
 
 
 
@@ -37,16 +39,62 @@ import eu.rafaelaznar.bean.genericimplementation.TableGenericBeanImplementation;
 public class LineadepedidoSpecificBeanImplementation extends TableGenericBeanImplementation {
 
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "cantidad",
+            ShortName = "Cant.",
+            LongName = "Cantidad",
+            Description = "Cantidad de articulos",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true            
+    ) 
     private Integer cantidad;
 
     @Expose(serialize = false)
+    @MetaPropertyBeanInterface(
+            IsIdForeignKey = true,
+            Name = "id_pedido",
+            ShortName = "ID Ped.",
+            LongName = "ID Pedido",
+            Description = "ID del pedido",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true            
+    ) 
     private Integer id_pedido = 0;
+    
     @Expose(deserialize = false)
+    @MetaPropertyBeanInterface(
+            IsObjForeignKey = true,
+            Name = "obj_pedido",
+            ShortName = "Obj. Ped.",
+            LongName = "Objeto Pedido",
+            Description = "Objeto del pedido",
+            Type = EnumHelper.FieldType.Object,
+            IsRequired = true            
+    ) 
     private PedidoSpecificBeanImplementation obj_pedido = null;
 
     @Expose(serialize = false)
+    @MetaPropertyBeanInterface(
+            IsIdForeignKey = true,
+            Name = "id_producto",
+            ShortName = "ID Prod.",
+            LongName = "ID Producto",
+            Description = "ID del producto",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true            
+    ) 
     private Integer id_producto = 0;
+    
     @Expose(deserialize = false)
+    @MetaPropertyBeanInterface(
+            IsObjForeignKey = true,
+            Name = "obj_producto",
+            ShortName = "Obj. Prod.",
+            LongName = "Objeto Producto",
+            Description = "Objeto del producto",
+            Type = EnumHelper.FieldType.Object,
+            IsRequired = true            
+    ) 
     private ProductoSpecificBeanImplementation obj_producto = null;
 
     public LineadepedidoSpecificBeanImplementation() {

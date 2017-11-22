@@ -30,16 +30,53 @@ package eu.rafaelaznar.bean.specificimplementation;
 
 import com.google.gson.annotations.Expose;
 import eu.rafaelaznar.bean.genericimplementation.TableGenericBeanImplementation;
+import eu.rafaelaznar.bean.meta.publicinterface.MetaPropertyBeanInterface;
+import eu.rafaelaznar.helper.EnumHelper;
 
 public class ProductoSpecificBeanImplementation extends TableGenericBeanImplementation {
 
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "codigo",
+            ShortName = "Cod.",
+            LongName = "Código",
+            Description = "Código del producto",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true            
+    ) 
     private String codigo;
+    
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "descripcion",
+            ShortName = "Descr.",
+            LongName = "Descripción",
+            Description = "Descripción del producto",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true            
+    ) 
     private String descripcion;
+    
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "existencias",
+            ShortName = "Exist.",
+            LongName = "Existencias",
+            Description = "Cantidad de existencias del producto",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true            
+    ) 
     private int existencias;
+    
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "precio",
+            ShortName = "Precio",
+            LongName = "Precio",
+            Description = "Precio del producto",
+            Type = EnumHelper.FieldType.Double,
+            IsRequired = true            
+    ) 
     private double precio;
 
     public ProductoSpecificBeanImplementation() {

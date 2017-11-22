@@ -30,15 +30,43 @@ package eu.rafaelaznar.bean.specificimplementation;
 
 import com.google.gson.annotations.Expose;
 import eu.rafaelaznar.bean.genericimplementation.TableGenericBeanImplementation;
+import eu.rafaelaznar.bean.meta.publicinterface.MetaPropertyBeanInterface;
+import eu.rafaelaznar.helper.EnumHelper;
 import java.util.Date;
 
 public class PedidoSpecificBeanImplementation extends TableGenericBeanImplementation {
 
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "fecha",
+            ShortName = "Fecha",
+            LongName = "Fecha",
+            Description = "Fecha del pedido",
+            Type = EnumHelper.FieldType.Date,
+            IsRequired = true            
+    ) 
     private Date fecha;
+    
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "iva",
+            ShortName = "IVA",
+            LongName = "IVA",
+            Description = "IVA del producto",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true            
+    ) 
     private int iva;
+    
     @Expose
+    @MetaPropertyBeanInterface(
+            Name = "tiene_iva",
+            ShortName = "Tiene IVA",
+            LongName = "Tiene IVA",
+            Description = "Tiene IVA o no el producto",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true            
+    ) 
     private int tiene_iva;
 
     //---
